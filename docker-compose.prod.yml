@@ -2,7 +2,7 @@ version: '3.2'
 
 # This compose file demonstrates how Ilmomasiina could be run in a production environment.
 
-# This compose file serves Ilmomasiina at http://localhost:8000.
+# HOST_PORT sets the localhost port (default: 8000).
 # Env variables from .env file (in the repository root) will be used by docker compose and passed to the container.
 # Remember to create your own .env file (see .env.example)!
 
@@ -21,7 +21,7 @@ services:
     env_file:
       - .env
     ports:
-      - "127.0.0.1:8000:3000"
+      - "127.0.0.1:${HOST_PORT:-8000}:3000"
     logging:
       driver: "json-file"
       options:
